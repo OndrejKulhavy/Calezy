@@ -1,6 +1,6 @@
-import 'package:opennutritracker/core/data/repository/config_repository.dart';
-import 'package:opennutritracker/core/domain/entity/app_theme_entity.dart';
-import 'package:opennutritracker/core/domain/entity/config_entity.dart';
+import 'package:calezy/core/data/repository/config_repository.dart';
+import 'package:calezy/core/domain/entity/app_theme_entity.dart';
+import 'package:calezy/core/domain/entity/config_entity.dart';
 
 class AddConfigUsecase {
   final ConfigRepository _configRepository;

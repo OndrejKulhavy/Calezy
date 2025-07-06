@@ -1,0 +1,2 @@
+/Users/kulo/development/personal/Calezy/android/app/.cxx/Debug/6f3dg4k5/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/kulo/development/personal/Calezy/android/app/.cxx/Debug/6f3dg4k5/armeabi-v7a/CMakeFiles/rebuild_cache.dir

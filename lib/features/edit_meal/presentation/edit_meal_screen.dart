@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:logging/logging.dart';
-import 'package:opennutritracker/core/domain/entity/intake_type_entity.dart';
-import 'package:opennutritracker/core/utils/calc/unit_calc.dart';
-import 'package:opennutritracker/core/utils/custom_text_input_formatter.dart';
-import 'package:opennutritracker/core/utils/extensions.dart';
-import 'package:opennutritracker/core/utils/locator.dart';
-import 'package:opennutritracker/core/utils/navigation_options.dart';
-import 'package:opennutritracker/features/add_meal/domain/entity/meal_entity.dart';
-import 'package:opennutritracker/features/edit_meal/presentation/bloc/edit_meal_bloc.dart';
-import 'package:opennutritracker/features/edit_meal/presentation/widgets/default_meal_image.dart';
-import 'package:opennutritracker/features/meal_detail/meal_detail_screen.dart';
-import 'package:opennutritracker/generated/l10n.dart';
+import 'package:calezy/core/domain/entity/intake_type_entity.dart';
+import 'package:calezy/core/utils/calc/unit_calc.dart';
+import 'package:calezy/core/utils/custom_text_input_formatter.dart';
+import 'package:calezy/core/utils/extensions.dart';
+import 'package:calezy/core/utils/locator.dart';
+import 'package:calezy/core/utils/navigation_options.dart';
+import 'package:calezy/features/add_meal/domain/entity/meal_entity.dart';
+import 'package:calezy/features/edit_meal/presentation/bloc/edit_meal_bloc.dart';
+import 'package:calezy/features/edit_meal/presentation/widgets/default_meal_image.dart';
+import 'package:calezy/features/meal_detail/meal_detail_screen.dart';
+import 'package:calezy/generated/l10n.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 class EditMealScreen extends StatefulWidget {

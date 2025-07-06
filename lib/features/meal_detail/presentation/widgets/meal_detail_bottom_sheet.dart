@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:opennutritracker/core/domain/entity/intake_type_entity.dart';
-import 'package:opennutritracker/core/utils/locator.dart';
-import 'package:opennutritracker/core/utils/navigation_options.dart';
-import 'package:opennutritracker/features/add_meal/domain/entity/meal_entity.dart';
-import 'package:opennutritracker/features/diary/presentation/bloc/calendar_day_bloc.dart';
-import 'package:opennutritracker/features/diary/presentation/bloc/diary_bloc.dart';
-import 'package:opennutritracker/features/home/presentation/bloc/home_bloc.dart';
-import 'package:opennutritracker/features/meal_detail/presentation/bloc/meal_detail_bloc.dart';
-import 'package:opennutritracker/generated/l10n.dart';
+import 'package:calezy/core/domain/entity/intake_type_entity.dart';
+import 'package:calezy/core/utils/locator.dart';
+import 'package:calezy/core/utils/navigation_options.dart';
+import 'package:calezy/features/add_meal/domain/entity/meal_entity.dart';
+import 'package:calezy/features/diary/presentation/bloc/calendar_day_bloc.dart';
+import 'package:calezy/features/diary/presentation/bloc/diary_bloc.dart';
+import 'package:calezy/features/home/presentation/bloc/home_bloc.dart';
+import 'package:calezy/features/meal_detail/presentation/bloc/meal_detail_bloc.dart';
+import 'package:calezy/generated/l10n.dart';
 
 class MealDetailBottomSheet extends StatelessWidget {
   final MealEntity product;

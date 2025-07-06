@@ -1,4 +1,4 @@
-package com.opennutritracker.ont.opennutritracker
+package com.calezy.app
 
 import io.flutter.embedding.android.FlutterActivity
 

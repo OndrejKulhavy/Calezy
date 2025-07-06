@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:opennutritracker/core/presentation/widgets/error_dialog.dart';
-import 'package:opennutritracker/core/utils/locator.dart';
-import 'package:opennutritracker/features/add_activity/presentation/bloc/activities_bloc.dart';
-import 'package:opennutritracker/features/add_activity/presentation/bloc/recent_activities_bloc.dart';
-import 'package:opennutritracker/features/add_activity/presentation/widgets/activity_item_card.dart';
-import 'package:opennutritracker/features/add_meal/presentation/widgets/no_results_widget.dart';
-import 'package:opennutritracker/generated/l10n.dart';
+import 'package:calezy/core/presentation/widgets/error_dialog.dart';
+import 'package:calezy/core/utils/locator.dart';
+import 'package:calezy/features/add_activity/presentation/bloc/activities_bloc.dart';
+import 'package:calezy/features/add_activity/presentation/bloc/recent_activities_bloc.dart';
+import 'package:calezy/features/add_activity/presentation/widgets/activity_item_card.dart';
+import 'package:calezy/features/add_meal/presentation/widgets/no_results_widget.dart';
+import 'package:calezy/generated/l10n.dart';
 
 class AddActivityScreen extends StatefulWidget {
   const AddActivityScreen({super.key});

@@ -1,5 +1,5 @@
-name: opennutritracker
-description: Open-Source Calories & Activity Tracker
+name: calezy
+description: Simple and Smart Calorie Tracker
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -85,6 +85,7 @@ dev_dependencies:
   mockito: ^5.4.5
 
 flutter:
+  generate: true
 
   uses-material-design: true
 
@@ -131,6 +132,10 @@ flutter:
 
 flutter_intl:
   enabled: true
+  arb_dir: lib/l10n
+  output_dir: lib/generated
+  template_arb_file: intl_en.arb
+  main_locale: en
 
 flutter_launcher_icons:
   android: true

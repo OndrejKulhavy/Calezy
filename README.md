@@ -1,23 +1,15 @@
 <p align="center">
   <img alt="Logo" src="assets/icon/ont_logo_square.png" width="128" />
-  <h1 align="center">OpenNutriTracker</h1>
+  <h1 align="center">Calezy</h1>
 </p>
 
 <p align="center">
   <a href="https://opensource.org/licenses/MIT" alt="License">
         <img src="https://img.shields.io/badge/license-GPLv3-blue" /></a>
-  <a href="https://github.com/simonoppowa/OpenNutriTracker/stargazers" alt="GitHub Stars">
-        <img src="https://img.shields.io/github/stars/simonoppowa/OpenNutriTracker.svg" /></a>
-  <a href="https://github.com/simonoppowa/OpenNutriTracker/issues" alt="GitHub Issues">
-        <img src="https://img.shields.io/github/issues/simonoppowa/OpenNutriTracker.svg" /></a>
-  <a href="https://github.com/simonoppowa/OpenNutriTracker/pulls" alt="GitHub Pull Requests">
-        <img src="https://img.shields.io/github/issues-pr/simonoppowa/OpenNutriTracker.svg" /></a>
 </p>
 
 ## Description
-OpenNutriTracker is an open-source mobile application designed to simplify nutritional tracking and management. Whether you are looking to improve your health, lose weight, or simply maintain a balanced diet, OpenNutriTracker provides a minimalistic interface to easily track and analyze your daily nutrition.
-
-[Website](https://simonoppowa.github.io/OpenNutriTracker-Website/)
+Calezy is a simple and smart mobile application designed to simplify calorie tracking and health management. Whether you are looking to improve your health, lose weight, or simply maintain a balanced lifestyle, Calezy provides a minimalistic and intuitive interface to easily track and analyze your daily nutrition.
 
 ## Screenshots
 <p align="center">

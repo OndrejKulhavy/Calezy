@@ -1,6 +1,6 @@
-import 'package:opennutritracker/core/domain/entity/user_entity.dart';
-import 'package:opennutritracker/core/domain/entity/user_weight_goal_entity.dart';
-import 'package:opennutritracker/core/utils/calc/tdee_calc.dart';
+import 'package:calezy/core/domain/entity/user_entity.dart';
+import 'package:calezy/core/domain/entity/user_weight_goal_entity.dart';
+import 'package:calezy/core/utils/calc/tdee_calc.dart';
 
 class CalorieGoalCalc {
   static const double loseWeightKcalAdjustment = -500;

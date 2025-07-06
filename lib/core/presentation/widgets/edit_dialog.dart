@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:opennutritracker/core/domain/entity/intake_entity.dart';
-import 'package:opennutritracker/core/utils/calc/unit_calc.dart';
-import 'package:opennutritracker/generated/l10n.dart';
+import 'package:calezy/core/domain/entity/intake_entity.dart';
+import 'package:calezy/core/utils/calc/unit_calc.dart';
+import 'package:calezy/generated/l10n.dart';
 
 class EditDialog extends StatefulWidget {
   final IntakeEntity intakeEntity;

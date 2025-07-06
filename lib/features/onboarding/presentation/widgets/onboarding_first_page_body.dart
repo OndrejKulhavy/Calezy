@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:opennutritracker/features/onboarding/domain/entity/user_gender_selection_entity.dart';
-import 'package:opennutritracker/generated/l10n.dart';
+import 'package:calezy/features/onboarding/domain/entity/user_gender_selection_entity.dart';
+import 'package:calezy/generated/l10n.dart';
 
 class OnboardingFirstPageBody extends StatefulWidget {
   final Function(

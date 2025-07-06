@@ -1,5 +1,5 @@
-import 'package:opennutritracker/core/data/repository/user_repository.dart';
-import 'package:opennutritracker/core/domain/entity/user_entity.dart';
+import 'package:calezy/core/data/repository/user_repository.dart';
+import 'package:calezy/core/domain/entity/user_entity.dart';
 
 class GetUserUsecase {
   final UserRepository userRepository;

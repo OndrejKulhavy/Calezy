@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logging/logging.dart';
-import 'package:opennutritracker/core/domain/entity/physical_activity_entity.dart';
-import 'package:opennutritracker/core/domain/entity/user_entity.dart';
-import 'package:opennutritracker/core/utils/locator.dart';
-import 'package:opennutritracker/core/utils/navigation_options.dart';
-import 'package:opennutritracker/features/activity_detail/presentation/bloc/activity_detail_bloc.dart';
-import 'package:opennutritracker/features/activity_detail/presentation/widget/activity_detail_bottom_sheet.dart';
-import 'package:opennutritracker/features/activity_detail/presentation/widget/activity_info_button.dart';
-import 'package:opennutritracker/features/activity_detail/presentation/widget/activity_title_expanded.dart';
-import 'package:opennutritracker/features/diary/presentation/bloc/calendar_day_bloc.dart';
-import 'package:opennutritracker/features/diary/presentation/bloc/diary_bloc.dart';
-import 'package:opennutritracker/features/home/presentation/bloc/home_bloc.dart';
-import 'package:opennutritracker/generated/l10n.dart';
+import 'package:calezy/core/domain/entity/physical_activity_entity.dart';
+import 'package:calezy/core/domain/entity/user_entity.dart';
+import 'package:calezy/core/utils/locator.dart';
+import 'package:calezy/core/utils/navigation_options.dart';
+import 'package:calezy/features/activity_detail/presentation/bloc/activity_detail_bloc.dart';
+import 'package:calezy/features/activity_detail/presentation/widget/activity_detail_bottom_sheet.dart';
+import 'package:calezy/features/activity_detail/presentation/widget/activity_info_button.dart';
+import 'package:calezy/features/activity_detail/presentation/widget/activity_title_expanded.dart';
+import 'package:calezy/features/diary/presentation/bloc/calendar_day_bloc.dart';
+import 'package:calezy/features/diary/presentation/bloc/diary_bloc.dart';
+import 'package:calezy/features/home/presentation/bloc/home_bloc.dart';
+import 'package:calezy/generated/l10n.dart';
 
 class ActivityDetailScreen extends StatefulWidget {
   const ActivityDetailScreen({super.key});

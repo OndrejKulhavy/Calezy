@@ -1,7 +1,7 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:opennutritracker/core/data/dbo/physical_activity_dbo.dart';
-import 'package:opennutritracker/core/domain/entity/user_activity_entity.dart';
+import 'package:calezy/core/data/dbo/physical_activity_dbo.dart';
+import 'package:calezy/core/domain/entity/user_activity_entity.dart';
 
 part 'user_activity_dbo.g.dart';
 

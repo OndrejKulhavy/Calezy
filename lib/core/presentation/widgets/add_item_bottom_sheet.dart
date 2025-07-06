@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:opennutritracker/core/domain/entity/intake_type_entity.dart';
-import 'package:opennutritracker/core/domain/entity/user_activity_entity.dart';
-import 'package:opennutritracker/core/utils/navigation_options.dart';
-import 'package:opennutritracker/features/add_activity/presentation/add_activity_screen.dart';
-import 'package:opennutritracker/features/add_meal/presentation/add_meal_screen.dart';
-import 'package:opennutritracker/features/add_meal/presentation/add_meal_type.dart';
-import 'package:opennutritracker/generated/l10n.dart';
+import 'package:calezy/core/domain/entity/intake_type_entity.dart';
+import 'package:calezy/core/domain/entity/user_activity_entity.dart';
+import 'package:calezy/core/utils/navigation_options.dart';
+import 'package:calezy/features/add_activity/presentation/add_activity_screen.dart';
+import 'package:calezy/features/add_meal/presentation/add_meal_screen.dart';
+import 'package:calezy/features/add_meal/presentation/add_meal_type.dart';
+import 'package:calezy/generated/l10n.dart';
 
 class AddItemBottomSheet extends StatelessWidget {
   final DateTime day;

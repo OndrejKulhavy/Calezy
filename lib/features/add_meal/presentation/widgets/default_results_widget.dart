@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:opennutritracker/generated/l10n.dart';
+import 'package:calezy/generated/l10n.dart';
 
 class DefaultsResultsWidget extends StatelessWidget {
   const DefaultsResultsWidget({super.key});

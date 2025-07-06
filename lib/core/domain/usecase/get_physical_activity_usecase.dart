@@ -1,5 +1,5 @@
-import 'package:opennutritracker/core/data/repository/physical_activity_repository.dart';
-import 'package:opennutritracker/core/domain/entity/physical_activity_entity.dart';
+import 'package:calezy/core/data/repository/physical_activity_repository.dart';
+import 'package:calezy/core/domain/entity/physical_activity_entity.dart';
 
 class GetPhysicalActivityUsecase {
   final PhysicalActivityRepository _physicalActivityRepository;
