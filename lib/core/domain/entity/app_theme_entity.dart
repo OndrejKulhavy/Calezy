@@ -4,7 +4,8 @@ import 'package:calezy/core/data/dbo/app_theme_dbo.dart';
 enum AppThemeEntity {
   light,
   dark,
-  system;
+  system,
+  dynamic;
 
   factory AppThemeEntity.fromAppThemeDBO(AppThemeDBO dbo) {
     AppThemeEntity entity;
@@ -17,6 +18,9 @@ enum AppThemeEntity {
         break;
       case AppThemeDBO.system:
         entity = AppThemeEntity.system;
+        break;
+      case AppThemeDBO.dynamic:
+        entity = AppThemeEntity.dynamic;
         break;
       }
     return entity;
@@ -33,6 +37,9 @@ enum AppThemeEntity {
         break;
       case AppThemeEntity.system:
         mode = ThemeMode.system;
+        break;
+      case AppThemeEntity.dynamic:
+        mode = ThemeMode.system; // Dynamic colors follow system theme
         break;
     }
     return mode;

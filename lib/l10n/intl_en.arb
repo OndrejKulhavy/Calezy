@@ -54,6 +54,7 @@
   "settingsThemeLightLabel": "Light",
   "settingsThemeDarkLabel": "Dark",
   "settingsThemeSystemDefaultLabel": "System default",
+  "settingsThemeDynamicLabel": "Dynamic (Android 12+)",
   "settingsLicensesLabel": "Licenses",
   "settingsDisclaimerLabel": "Disclaimer",
   "settingsReportErrorLabel": "Report Error",

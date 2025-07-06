@@ -96,4 +96,5 @@ const _$AppThemeDBOEnumMap = {
   AppThemeDBO.light: 'light',
   AppThemeDBO.dark: 'dark',
   AppThemeDBO.system: 'system',
+  AppThemeDBO.dynamic: 'dynamic',
 };

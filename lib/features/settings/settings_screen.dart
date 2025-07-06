@@ -214,6 +214,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       },
                     ),
                     RadioListTile(
+                      title: Text(S.of(context).settingsThemeDynamicLabel),
+                      value: AppThemeEntity.dynamic,
+                      groupValue: selectedTheme,
+                      onChanged: (value) {
+                        setState(() {
+                          selectedTheme = value as AppThemeEntity;
+                        });
+                      },
+                    ),
+                    RadioListTile(
                       title: Text(S.of(context).settingsThemeLightLabel),
                       value: AppThemeEntity.light,
                       groupValue: selectedTheme,

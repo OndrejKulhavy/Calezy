@@ -590,6 +590,16 @@ class S {
     );
   }
 
+  /// `Dynamic (Android 12+)`
+  String get settingsThemeDynamicLabel {
+    return Intl.message(
+      'Dynamic (Android 12+)',
+      name: 'settingsThemeDynamicLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `System default`
   String get settingsThemeSystemDefaultLabel {
     return Intl.message(

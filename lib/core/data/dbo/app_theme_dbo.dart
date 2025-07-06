@@ -10,7 +10,9 @@ enum AppThemeDBO {
   @HiveField(1)
   dark,
   @HiveField(2)
-  system;
+  system,
+  @HiveField(3)
+  dynamic;
 
   static AppThemeDBO get defaultTheme => AppThemeDBO.system;
 
@@ -25,6 +27,9 @@ enum AppThemeDBO {
         break;
       case AppThemeEntity.system:
         dbo = AppThemeDBO.system;
+        break;
+      case AppThemeEntity.dynamic:
+        dbo = AppThemeDBO.dynamic;
         break;
       }
     return dbo;

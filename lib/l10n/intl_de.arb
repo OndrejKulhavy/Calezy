@@ -52,6 +52,7 @@
   "settingsThemeLightLabel": "Hell",
   "settingsThemeDarkLabel": "Dunkel",
   "settingsThemeSystemDefaultLabel": "Systemstandard",
+  "settingsThemeDynamicLabel": "Dynamisch (Android 12+)",
   "settingsLicensesLabel": "Lizenzen",
   "settingsDisclaimerLabel": "Hinweis",
   "settingsReportErrorLabel": "Fehler melden",

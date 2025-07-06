@@ -54,6 +54,7 @@
   "settingsThemeLightLabel": "Açık",
   "settingsThemeDarkLabel": "Koyu",
   "settingsThemeSystemDefaultLabel": "Sistem varsayılanı",
+  "settingsThemeDynamicLabel": "Dinamik (Android 12+)",
   "settingsLicensesLabel": "Lisanslar",
   "settingsDisclaimerLabel": "Sorumluluk Reddi",
   "settingsReportErrorLabel": "Hata Bildir",

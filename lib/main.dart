@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:logging/logging.dart';
+import 'package:dynamic_color/dynamic_color.dart';
 import 'package:calezy/core/data/data_source/user_data_source.dart';
 import 'package:calezy/core/data/repository/config_repository.dart';
 import 'package:calezy/core/domain/entity/app_theme_entity.dart';
@@ -71,44 +72,55 @@ class OpenNutriTrackerApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      onGenerateTitle: (context) => S.of(context).appTitle,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          useMaterial3: true,
-          colorScheme: lightColorScheme,
-          textTheme: appTextTheme),
-      darkTheme: ThemeData(
-          useMaterial3: true,
-          colorScheme: darkColorScheme,
-          textTheme: appTextTheme),
-      themeMode: Provider.of<ThemeModeProvider>(context).themeMode,
-      localizationsDelegates: const [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
-      initialRoute: userInitialized
-          ? NavigationOptions.mainRoute
-          : NavigationOptions.onboardingRoute,
-      routes: {
-        NavigationOptions.mainRoute: (context) => const MainScreen(),
-        NavigationOptions.onboardingRoute: (context) =>
-            const OnboardingScreen(),
-        NavigationOptions.settingsRoute: (context) => const SettingsScreen(),
-        NavigationOptions.addMealRoute: (context) => const AddMealScreen(),
-        NavigationOptions.scannerRoute: (context) => const ScannerScreen(),
-        NavigationOptions.mealDetailRoute: (context) =>
-            const MealDetailScreen(),
-        NavigationOptions.editMealRoute: (context) => const EditMealScreen(),
-        NavigationOptions.addActivityRoute: (context) =>
-            const AddActivityScreen(),
-        NavigationOptions.activityDetailRoute: (context) =>
-            const ActivityDetailScreen(),
-        NavigationOptions.imageFullScreenRoute: (context) =>
-            const ImageFullScreen(),
+    return DynamicColorBuilder(
+      builder: (dynamicLightColorScheme, dynamicDarkColorScheme) {
+        final themeModeProvider = Provider.of<ThemeModeProvider>(context);
+        final isDynamicTheme = themeModeProvider.appTheme == AppThemeEntity.dynamic;
+        
+        return MaterialApp(
+          onGenerateTitle: (context) => S.of(context).appTitle,
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+              useMaterial3: true,
+              colorScheme: isDynamicTheme && dynamicLightColorScheme != null 
+                  ? dynamicLightColorScheme 
+                  : lightColorScheme,
+              textTheme: appTextTheme),
+          darkTheme: ThemeData(
+              useMaterial3: true,
+              colorScheme: isDynamicTheme && dynamicDarkColorScheme != null 
+                  ? dynamicDarkColorScheme 
+                  : darkColorScheme,
+              textTheme: appTextTheme),
+          themeMode: themeModeProvider.themeMode,
+          localizationsDelegates: const [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
+          initialRoute: userInitialized
+              ? NavigationOptions.mainRoute
+              : NavigationOptions.onboardingRoute,
+          routes: {
+            NavigationOptions.mainRoute: (context) => const MainScreen(),
+            NavigationOptions.onboardingRoute: (context) =>
+                const OnboardingScreen(),
+            NavigationOptions.settingsRoute: (context) => const SettingsScreen(),
+            NavigationOptions.addMealRoute: (context) => const AddMealScreen(),
+            NavigationOptions.scannerRoute: (context) => const ScannerScreen(),
+            NavigationOptions.mealDetailRoute: (context) =>
+                const MealDetailScreen(),
+            NavigationOptions.editMealRoute: (context) => const EditMealScreen(),
+            NavigationOptions.addActivityRoute: (context) =>
+                const AddActivityScreen(),
+            NavigationOptions.activityDetailRoute: (context) =>
+                const ActivityDetailScreen(),
+            NavigationOptions.imageFullScreenRoute: (context) =>
+                const ImageFullScreen(),
+          },
+        );
       },
     );
   }

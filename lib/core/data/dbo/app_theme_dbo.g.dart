@@ -19,6 +19,8 @@ class AppThemeDBOAdapter extends TypeAdapter<AppThemeDBO> {
         return AppThemeDBO.dark;
       case 2:
         return AppThemeDBO.system;
+      case 3:
+        return AppThemeDBO.dynamic;
       default:
         return AppThemeDBO.light;
     }
@@ -35,6 +37,9 @@ class AppThemeDBOAdapter extends TypeAdapter<AppThemeDBO> {
         break;
       case AppThemeDBO.system:
         writer.writeByte(2);
+        break;
+      case AppThemeDBO.dynamic:
+        writer.writeByte(3);
         break;
     }
   }
