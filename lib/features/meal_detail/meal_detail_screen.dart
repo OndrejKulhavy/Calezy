@@ -6,9 +6,11 @@ import 'package:logging/logging.dart';
 import 'package:calezy/core/domain/entity/intake_type_entity.dart';
 import 'package:calezy/core/presentation/widgets/meal_value_unit_text.dart';
 import 'package:calezy/core/presentation/widgets/image_full_screen.dart';
+import 'package:calezy/core/presentation/widgets/health_indicator_widgets.dart';
 import 'package:calezy/core/utils/locator.dart';
 import 'package:calezy/core/utils/navigation_options.dart';
 import 'package:calezy/features/add_meal/domain/entity/meal_entity.dart';
+import 'package:calezy/features/add_meal/domain/entity/meal_health_entity.dart';
 import 'package:calezy/features/edit_meal/presentation/edit_meal_screen.dart';
 import 'package:calezy/features/meal_detail/presentation/bloc/meal_detail_bloc.dart';
 import 'package:calezy/features/meal_detail/presentation/widgets/meal_detail_bottom_sheet.dart';
@@ -254,6 +256,32 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
                 ),
                 const Divider(),
                 const SizedBox(height: 16.0),
+                
+                // Health Information Section
+                if (meal.health.shouldShowWarning || 
+                    meal.health.nutriScore != null || 
+                    meal.health.ecoScore != null ||
+                    meal.health.novaGroup != null) ...[
+                  Text(
+                    'Health Information',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  const SizedBox(height: 12.0),
+                  
+                  // Warning Messages
+                  if (meal.health.shouldShowWarning) ...[
+                    _buildHealthWarnings(context, meal.health),
+                    const SizedBox(height: 12.0),
+                  ],
+                  
+                  // Health Scores
+                  HealthScoreIndicator(health: meal.health),
+                  const SizedBox(height: 16.0),
+                  const Divider(),
+                  const SizedBox(height: 16.0),
+                ],
+                
+                // Nutritional Information Table
                 MealDetailNutrimentsTable(
                     product: meal,
                     usesImperialUnits: _usesImperialUnits,
@@ -295,6 +323,87 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
         curve: Curves.easeInOut,
       );
     }
+  }
+
+  Widget _buildHealthWarnings(BuildContext context, MealHealthEntity health) {
+    return Column(
+      children: [
+        if (health.processingLevel == ProcessingLevel.ultraProcessed)
+          _buildWarningCard(
+            context,
+            icon: Icons.warning_rounded,
+            color: Colors.orange.shade600,
+            title: 'Ultra-Processed Food',
+            description: 'This product is heavily processed and may contain many additives.',
+          ),
+        
+        if (health.hasRiskyAdditives) ...[
+          const SizedBox(height: 8.0),
+          _buildWarningCard(
+            context,
+            icon: Icons.science_outlined,
+            color: Colors.red.shade600,
+            title: 'Contains Risky Additives',
+            description: 'This product contains additives that some people may want to avoid.',
+          ),
+        ],
+        
+        if (health.nutritionalQuality == NutritionalQuality.veryPoor) ...[
+          const SizedBox(height: 8.0),
+          _buildWarningCard(
+            context,
+            icon: Icons.local_dining,
+            color: Colors.red.shade600,
+            title: 'Poor Nutritional Quality',
+            description: 'This product has a low nutritional score (Nutri-Score E).',
+          ),
+        ],
+      ],
+    );
+  }
+
+  Widget _buildWarningCard(
+    BuildContext context, {
+    required IconData icon,
+    required Color color,
+    required String title,
+    required String description,
+  }) {
+    return Container(
+      padding: const EdgeInsets.all(12.0),
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(8.0),
+        border: Border.all(color: color.withOpacity(0.3)),
+      ),
+      child: Row(
+        children: [
+          Icon(icon, color: color, size: 24),
+          const SizedBox(width: 12.0),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: color,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 2.0),
+                Text(
+                  description,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface.withOpacity(0.8),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 

@@ -32,6 +32,13 @@ class OFFConst {
   static const _offServingQuantityTag = "serving_quantity";
   static const _offServingSizeTag = "serving_size";
   static const _offNutrimentsTag = "nutriments";
+  
+  // Health and processing data fields
+  static const _offNovaGroupTag = "nova_group";
+  static const _offNutritionGradesTag = "nutrition_grades";
+  static const _offEcoscoreGradeTag = "ecoscore_grade";
+  static const _offAdditivesTagsTag = "additives_tags";
+  static const _offIngredientsAnalysisTagsTag = "ingredients_analysis_tags";
 
   static const _returnFields = [
     _offCodeTag,
@@ -48,7 +55,12 @@ class OFFConst {
     _offQuantityTag,
     _offServingQuantityTag,
     _offServingSizeTag,
-    _offNutrimentsTag
+    _offNutrimentsTag,
+    _offNovaGroupTag,
+    _offNutritionGradesTag,
+    _offEcoscoreGradeTag,
+    _offAdditivesTagsTag,
+    _offIngredientsAnalysisTagsTag
   ];
 
   static String _getReturnFields() => _returnFields.join(",");

@@ -6,6 +6,7 @@ import 'package:calezy/core/utils/id_generator.dart';
 import 'package:calezy/core/utils/supported_language.dart';
 import 'package:calezy/features/add_meal/data/dto/off/off_product_dto.dart';
 import 'package:calezy/features/add_meal/domain/entity/meal_nutriments_entity.dart';
+import 'package:calezy/features/add_meal/domain/entity/meal_health_entity.dart';
 
 class MealEntity extends Equatable {
   static const liquidUnits = {'ml', 'l', 'dl', 'cl', 'fl oz', 'fl.oz'};
@@ -38,6 +39,8 @@ class MealEntity extends Equatable {
   final MealSourceEntity source;
 
   final MealNutrimentsEntity nutriments;
+  
+  final MealHealthEntity health;
 
   bool get isLiquid => liquidUnits.contains(mealUnit);
 
@@ -56,7 +59,8 @@ class MealEntity extends Equatable {
       required this.servingUnit,
       required this.servingSize,
       required this.nutriments,
-      required this.source});
+      required this.source,
+      required this.health});
 
   factory MealEntity.empty() => MealEntity(
       code: IdGenerator.getUniqueID(),
@@ -68,7 +72,8 @@ class MealEntity extends Equatable {
       servingUnit: 'gml',
       servingSize: '',
       nutriments: MealNutrimentsEntity.empty(),
-      source: MealSourceEntity.custom);
+      source: MealSourceEntity.custom,
+      health: MealHealthEntity.empty());
 
   factory MealEntity.fromMealDBO(MealDBO mealDBO) => MealEntity(
       code: mealDBO.code,
@@ -84,7 +89,8 @@ class MealEntity extends Equatable {
       servingSize: mealDBO.servingSize,
       nutriments:
           MealNutrimentsEntity.fromMealNutrimentsDBO(mealDBO.nutriments),
-      source: MealSourceEntity.fromMealSourceDBO(mealDBO.source));
+      source: MealSourceEntity.fromMealSourceDBO(mealDBO.source),
+      health: MealHealthEntity.empty()); // Legacy data won't have health info
 
   factory MealEntity.fromOFFProduct(OFFProductDTO offProduct) {
     return MealEntity(
@@ -102,7 +108,14 @@ class MealEntity extends Equatable {
         servingSize: offProduct.serving_size,
         nutriments:
             MealNutrimentsEntity.fromOffNutriments(offProduct.nutriments),
-        source: MealSourceEntity.off);
+        source: MealSourceEntity.off,
+        health: MealHealthEntity.fromOFFData(
+          novaGroup: offProduct.nova_group,
+          nutritionGrades: offProduct.nutrition_grades,
+          ecoscoreGrade: offProduct.ecoscore_grade,
+          additivesTags: offProduct.additives_tags,
+          ingredientsAnalysisTags: offProduct.ingredients_analysis_tags,
+        ));
   }
 
   /// Value returned from OFF can either be String, int or double.

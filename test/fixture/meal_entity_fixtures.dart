@@ -1,5 +1,6 @@
 import 'package:calezy/features/add_meal/domain/entity/meal_entity.dart';
 import 'package:calezy/features/add_meal/domain/entity/meal_nutriments_entity.dart';
+import 'package:calezy/features/add_meal/domain/entity/meal_health_entity.dart';
 
 class MealEntityFixtures {
   static final mealOne = MealEntity(
@@ -12,7 +13,8 @@ class MealEntityFixtures {
       servingUnit: 'g',
       servingSize: '2 Tbsp (32 g)',
       nutriments: MealNutrimentsEntity.empty(),
-      source: MealSourceEntity.custom);
+      source: MealSourceEntity.custom,
+      health: MealHealthEntity.empty());
   static final mealTwo = MealEntity(
       code: "2",
       name: null,
@@ -23,7 +25,8 @@ class MealEntityFixtures {
       servingUnit: 'g',
       servingSize: '2 Tbsp (32 g)',
       nutriments: MealNutrimentsEntity.empty(),
-      source: MealSourceEntity.custom);
+      source: MealSourceEntity.custom,
+      health: MealHealthEntity.empty());
   static final mealThree = MealEntity(
       code: "3",
       name: null,
@@ -34,5 +37,6 @@ class MealEntityFixtures {
       servingUnit: 'g',
       servingSize: '2 Tbsp (32 g)',
       nutriments: MealNutrimentsEntity.empty(),
-      source: MealSourceEntity.custom);
+      source: MealSourceEntity.custom,
+      health: MealHealthEntity.empty());
 }

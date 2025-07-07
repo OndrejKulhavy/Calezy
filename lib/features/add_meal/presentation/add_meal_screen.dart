@@ -10,7 +10,7 @@ import 'package:calezy/features/add_meal/presentation/widgets/default_results_wi
 import 'package:calezy/features/add_meal/presentation/widgets/meal_search_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:calezy/features/add_meal/presentation/widgets/no_results_widget.dart';
-import 'package:calezy/features/add_meal/presentation/widgets/meal_item_card.dart';
+import 'package:calezy/features/add_meal/presentation/widgets/enhanced_meal_item_card.dart';
 import 'package:calezy/features/add_meal/presentation/bloc/products_bloc.dart';
 import 'package:calezy/features/edit_meal/presentation/edit_meal_screen.dart';
 import 'package:calezy/features/scanner/scanner_screen.dart';
@@ -127,7 +127,7 @@ class _AddMealScreenState extends State<AddMealScreen>
                                     child: ListView.builder(
                                         itemCount: state.products.length,
                                         itemBuilder: (context, index) {
-                                          return MealItemCard(
+                                          return EnhancedMealItemCard(
                                             day: _day,
                                             mealEntity: state.products[index],
                                             addMealType: _mealType,
@@ -167,15 +167,14 @@ class _AddMealScreenState extends State<AddMealScreen>
                                   ? Flexible(
                                       child: ListView.builder(
                                           itemCount: state.recentMeals.length,
-                                          itemBuilder: (context, index) {
-                                            return MealItemCard(
-                                              day: _day,
-                                              mealEntity:
-                                                  state.recentMeals[index],
-                                              addMealType: _mealType,
-                                              usesImperialUnits:
-                                                  state.usesImperialUnits,
-                                            );
+                                          itemBuilder: (context, index) {                            return EnhancedMealItemCard(
+                              day: _day,
+                              mealEntity:
+                                  state.recentMeals[index],
+                              addMealType: _mealType,
+                              usesImperialUnits:
+                                  state.usesImperialUnits,
+                            );
                                           }))
                                   : const NoResultsWidget();
                             } else if (state is RecentMealFailedState) {

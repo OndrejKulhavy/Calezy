@@ -65,6 +65,7 @@ class EditMealBloc extends Bloc<EditMealEvent, EditMealState> {
         servingUnit: servingQuantityText.toStringOrNull(),
         servingSize: oldMealEntity.servingSize,
         nutriments: newMealNutriments,
-        source: oldMealEntity.source);
+        source: oldMealEntity.source,
+        health: oldMealEntity.health); // Preserve existing health data
   }
 }

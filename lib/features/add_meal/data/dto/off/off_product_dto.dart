@@ -30,6 +30,13 @@ class OFFProductDTO {
   final String? serving_size;  // E.g. 2 Tbsp (32 g)
 
   final OFFProductNutrimentsDTO nutriments;
+  
+  // Health and processing data
+  final int? nova_group;
+  final String? nutrition_grades;
+  final String? ecoscore_grade;
+  final List<String>? additives_tags;
+  final List<String>? ingredients_analysis_tags;
 
   String? getLocaleName(SupportedLanguage supportedLanguage) {
     String? localeName;
@@ -67,7 +74,12 @@ class OFFProductDTO {
       required this.product_quantity,
       required this.serving_quantity,
       required this.serving_size,
-      required this.nutriments});
+      required this.nutriments,
+      this.nova_group,
+      this.nutrition_grades,
+      this.ecoscore_grade,
+      this.additives_tags,
+      this.ingredients_analysis_tags});
 
   factory OFFProductDTO.fromJson(Map<String, dynamic> json) =>
       _$OFFProductDTOFromJson(json);
