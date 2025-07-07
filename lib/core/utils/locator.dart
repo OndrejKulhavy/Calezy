@@ -28,7 +28,6 @@ import 'package:calezy/core/domain/usecase/get_tracked_day_usecase.dart';
 import 'package:calezy/core/domain/usecase/get_user_activity_usecase.dart';
 import 'package:calezy/core/domain/usecase/get_user_usecase.dart';
 import 'package:calezy/core/domain/usecase/update_intake_usecase.dart';
-import 'package:calezy/core/utils/env.dart';
 import 'package:calezy/core/utils/hive_db_provider.dart';
 import 'package:calezy/core/utils/ont_image_cache_manager.dart';
 import 'package:calezy/core/utils/secure_app_storage_provider.dart';
@@ -54,7 +53,6 @@ import 'package:calezy/features/settings/domain/usecase/export_data_usecase.dart
 import 'package:calezy/features/settings/domain/usecase/import_data_usecase.dart';
 import 'package:calezy/features/settings/presentation/bloc/export_import_bloc.dart';
 import 'package:calezy/features/settings/presentation/bloc/settings_bloc.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 final locator = GetIt.instance;
 
@@ -64,11 +62,6 @@ Future<void> initLocator() async {
   final hiveDBProvider = HiveDBProvider();
   await hiveDBProvider
       .initHiveDB(await secureAppStorageProvider.getHiveEncryptionKey());
-
-  // Backend
-  await Supabase.initialize(
-      url: Env.supabaseProjectUrl, anonKey: Env.supabaseProjectAnonKey);
-  locator.registerLazySingleton<SupabaseClient>(() => Supabase.instance.client);
 
   // Cache manager
   locator

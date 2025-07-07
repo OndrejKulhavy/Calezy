@@ -70,7 +70,6 @@ dependencies:
 
   sentry_flutter: ^8.14.2
 
-  supabase_flutter: ^2.8.2
   dynamic_color: ^1.7.0
 
 dev_dependencies:
