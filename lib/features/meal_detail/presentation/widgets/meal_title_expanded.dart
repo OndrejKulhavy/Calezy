@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:calezy/core/presentation/widgets/meal_value_unit_text.dart';
 import 'package:calezy/features/add_meal/domain/entity/meal_entity.dart';
@@ -18,45 +17,49 @@ class MealTitleExpanded extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            AutoSizeText.rich(
-                minFontSize: 6,
-                maxFontSize: 16,
-                TextSpan(
-                    text: meal.name ?? '',
-                    style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                        color: Theme.of(context).colorScheme.onSurface),
-                    children: [
-                      TextSpan(
-                          text: ' ${meal.brands ?? ''}',
-                          style: Theme.of(context)
-                              .textTheme
-                              .displaySmall
-                              ?.copyWith(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onSurface
-                                      .withValues(alpha: 0.7))),
-                    ]),
+            Text(
+              meal.name ?? '',
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.w600,
+              ),
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+            if (meal.brands != null && meal.brands!.isNotEmpty) ...[
+              const SizedBox(height: 4),
+              Text(
+                meal.brands!,
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
+                  fontWeight: FontWeight.w400,
+                ),
                 textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis),
-            meal.mealQuantity != null
-                ? Center(
-                    child: MealValueUnitText(
-                        value: double.tryParse(meal.mealQuantity ?? '') ?? 0,
-                        meal: meal,
-                        usesImperialUnits: usesImperialUnits,
-                        textStyle: Theme.of(context)
-                            .textTheme
-                            .headlineSmall
-                            ?.copyWith(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .onSurface
-                                    .withValues(alpha: 0.8)),
-                        prefix: ''),
-                  )
-                : const SizedBox(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+            if (meal.mealQuantity != null) ...[
+              const SizedBox(height: 8),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.7),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: MealValueUnitText(
+                  value: double.tryParse(meal.mealQuantity ?? '') ?? 0,
+                  meal: meal,
+                  usesImperialUnits: usesImperialUnits,
+                  textStyle: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: Theme.of(context).colorScheme.onPrimaryContainer,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  prefix: '',
+                ),
+              ),
+            ],
           ],
         ),
       ),
