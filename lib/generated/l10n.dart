@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `OpenNutriTracker`
+  /// `Calezy`
   String get appTitle {
     return Intl.message(
-      'OpenNutriTracker',
+      'Calezy',
       name: 'appTitle',
       desc: '',
       args: [],
@@ -70,10 +70,10 @@ class S {
     );
   }
 
-  /// `OpenNutriTracker is a free and open-source calorie and nutrient tracker that respects your privacy.`
+  /// `Calezy is a simple and smart calorie tracker that helps you reach your health goals with ease.`
   String get appDescription {
     return Intl.message(
-      'OpenNutriTracker is a free and open-source calorie and nutrient tracker that respects your privacy.',
+      'Calezy is a simple and smart calorie tracker that helps you reach your health goals with ease.',
       name: 'appDescription',
       desc: '',
       args: [],
@@ -740,10 +740,10 @@ class S {
     );
   }
 
-  /// `OpenNutriTracker is not a medical application. All data provided is not validated and should be used with caution. Please maintain a healthy lifestyle and consult a professional if you have any problems. Use during illness, pregnancy or lactation is not recommended.`
+  /// `Calezy is not a medical application. All data provided is not validated and should be used with caution. Please maintain a healthy lifestyle and consult a professional if you have any problems. Use during illness, pregnancy or lactation is not recommended.`
   String get disclaimerText {
     return Intl.message(
-      'OpenNutriTracker is not a medical application. All data provided is not validated and should be used with caution. Please maintain a healthy lifestyle and consult a professional if you have any problems. Use during illness, pregnancy or lactation is not recommended.',
+      'Calezy is not a medical application. All data provided is not validated and should be used with caution. Please maintain a healthy lifestyle and consult a professional if you have any problems. Use during illness, pregnancy or lactation is not recommended.',
       name: 'disclaimerText',
       desc: '',
       args: [],

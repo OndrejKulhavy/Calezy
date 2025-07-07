@@ -76,7 +76,7 @@
   "settingsImperialLabel": "İmperial (lbs, ft, oz)",
   "settingsDistanceLabel": "Mesafe",
   "settingsVolumeLabel": "Hacim",
-  "disclaimerText": "OpenNutriTracker bir tıbbi uygulama değildir. Sağlanan tüm veriler doğrulanmamıştır ve dikkatle kullanılmalıdır. Lütfen sağlıklı bir yaşam tarzı sürdürün ve herhangi bir sorununuz varsa bir profesyonele danışın. Hastalık, hamilelik veya emzirme döneminde kullanımı önerilmez.\n\n\nUygulama hala geliştirme aşamasındadır. Hatalar, aksaklıklar ve çökmeler meydana gelebilir.",
+  "disclaimerText": "Calezy bir tıbbi uygulama değildir. Sağlanan tüm veriler doğrulanmamıştır ve dikkatle kullanılmalıdır. Lütfen sağlıklı bir yaşam tarzı sürdürün ve herhangi bir sorununuz varsa bir profesyonele danışın. Hastalık, hamilelik veya emzirme döneminde kullanımı önerilmez.\n\n\nUygulama hala geliştirme aşamasındadır. Hatalar, aksaklıklar ve çökmeler meydana gelebilir.",
   "reportErrorDialogText": "Geliştiriciye bir hata bildirmek istiyor musunuz?",
   "sendAnonymousUserData": "Anonim kullanım verileri gönder",
   "appLicenseLabel": "GPL-3.0 lisansı",
