@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:calezy/core/domain/entity/intake_type_entity.dart';
 import 'package:calezy/core/domain/entity/user_activity_entity.dart';
+import 'package:calezy/core/utils/custom_icons.dart';
 import 'package:calezy/core/utils/navigation_options.dart';
 import 'package:calezy/features/add_activity/presentation/add_activity_screen.dart';
 import 'package:calezy/features/add_meal/presentation/add_meal_screen.dart';
 import 'package:calezy/features/add_meal/presentation/add_meal_type.dart';
+import 'package:calezy/features/scanner/scanner_screen.dart';
 import 'package:calezy/generated/l10n.dart';
 
 class AddItemBottomSheet extends StatelessWidget {
@@ -72,6 +74,13 @@ class AddItemBottomSheet extends StatelessWidget {
             leading: Container(
                 height: double.infinity,
                 child: Icon(IntakeTypeEntity.breakfast.getIconData())),
+            trailing: IconButton(
+              icon: const Icon(CustomIcons.barcode_scan),
+              onPressed: () {
+                _showScannerScreen(context, AddMealType.breakfastType);
+              },
+              tooltip: S.of(context).scanProductLabel,
+            ),
             onTap: () {
               _showAddItemScreen(context, AddMealType.breakfastType);
             },
@@ -94,6 +103,13 @@ class AddItemBottomSheet extends StatelessWidget {
             leading: Container(
                 height: double.infinity,
                 child: Icon(IntakeTypeEntity.lunch.getIconData())),
+            trailing: IconButton(
+              icon: const Icon(CustomIcons.barcode_scan),
+              onPressed: () {
+                _showScannerScreen(context, AddMealType.lunchType);
+              },
+              tooltip: S.of(context).scanProductLabel,
+            ),
             onTap: () {
               _showAddItemScreen(context, AddMealType.lunchType);
             },
@@ -116,6 +132,13 @@ class AddItemBottomSheet extends StatelessWidget {
             leading: Container(
                 height: double.infinity,
                 child: Icon(IntakeTypeEntity.dinner.getIconData())),
+            trailing: IconButton(
+              icon: const Icon(CustomIcons.barcode_scan),
+              onPressed: () {
+                _showScannerScreen(context, AddMealType.dinnerType);
+              },
+              tooltip: S.of(context).scanProductLabel,
+            ),
             onTap: () {
               _showAddItemScreen(context, AddMealType.dinnerType);
             },
@@ -138,6 +161,13 @@ class AddItemBottomSheet extends StatelessWidget {
             leading: Container(
                 height: double.infinity,
                 child: Icon(IntakeTypeEntity.snack.getIconData())),
+            trailing: IconButton(
+              icon: const Icon(CustomIcons.barcode_scan),
+              onPressed: () {
+                _showScannerScreen(context, AddMealType.snackType);
+              },
+              tooltip: S.of(context).scanProductLabel,
+            ),
             onTap: () {
               _showAddItemScreen(context, AddMealType.snackType);
             },
@@ -154,6 +184,12 @@ class AddItemBottomSheet extends StatelessWidget {
           itemType,
           day,
         ));
+  }
+
+  void _showScannerScreen(BuildContext context, AddMealType itemType) {
+    Navigator.of(context).pop(); // Close bottom sheet
+    Navigator.of(context).pushNamed(NavigationOptions.scannerRoute,
+        arguments: ScannerScreenArguments(day, itemType.getIntakeType()));
   }
 
   void _showAddActivityScreen(BuildContext context) {
