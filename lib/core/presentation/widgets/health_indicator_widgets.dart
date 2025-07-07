@@ -35,10 +35,17 @@ class HealthIndicatorChip extends StatelessWidget {
   Widget _buildNutriScoreChip(BuildContext context) {
     final color = health.nutritionalQuality.getColor();
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3.0),
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(16.0),
+        boxShadow: [
+          BoxShadow(
+            color: color.withValues(alpha: 0.3),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -54,8 +61,9 @@ class HealthIndicatorChip extends StatelessWidget {
               health.nutriScore!,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: size - 2,
+                fontSize: size - 1,
                 fontWeight: FontWeight.bold,
+                letterSpacing: 0.5,
               ),
             ),
           ],
@@ -66,10 +74,17 @@ class HealthIndicatorChip extends StatelessWidget {
 
   Widget _buildProcessingWarningChip(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3.0),
       decoration: BoxDecoration(
         color: Colors.orange.shade600,
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(16.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.orange.shade600.withValues(alpha: 0.3),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -86,7 +101,8 @@ class HealthIndicatorChip extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontSize: size - 4,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.2,
               ),
             ),
           ],
@@ -97,10 +113,17 @@ class HealthIndicatorChip extends StatelessWidget {
 
   Widget _buildAdditivesWarningChip(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3.0),
       decoration: BoxDecoration(
         color: Colors.red.shade600,
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(16.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.red.shade600.withValues(alpha: 0.3),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -117,7 +140,8 @@ class HealthIndicatorChip extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontSize: size - 4,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.2,
               ),
             ),
           ],
@@ -137,97 +161,132 @@ class HealthScoreIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
+    return Wrap(
+      spacing: 6.0,
+      runSpacing: 4.0,
       children: [
-        if (health.nutriScore != null) ...[
+        if (health.nutriScore != null)
           _buildScoreRow(
             'Nutrition',
             health.nutriScore!,
             health.nutritionalQuality.getColor(),
             Icons.local_dining,
           ),
-          const SizedBox(height: 4.0),
-        ],
-        if (health.ecoScore != null) ...[
+        if (health.ecoScore != null)
           _buildScoreRow(
             'Environment',
             health.ecoScore!,
             health.environmentalImpact.getColor(),
             Icons.eco,
           ),
-          const SizedBox(height: 4.0),
-        ],
-        if (health.novaGroup != null) ...[
+        if (health.novaGroup != null)
           _buildProcessingRow(),
-        ],
       ],
     );
   }
 
   Widget _buildScoreRow(String label, String score, Color color, IconData icon) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon, size: 14, color: color),
-        const SizedBox(width: 4.0),
-        Text(
-          '$label: ',
-          style: TextStyle(
-            fontSize: 12,
-            color: Colors.grey[600],
-          ),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3.0),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(12.0),
+        border: Border.all(
+          color: color.withValues(alpha: 0.3),
+          width: 1,
         ),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 1.0),
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          child: Text(
-            score,
-            style: const TextStyle(
-              color: Colors.white,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 14, color: color),
+          const SizedBox(width: 4.0),
+          Text(
+            '$label: ',
+            style: TextStyle(
               fontSize: 11,
-              fontWeight: FontWeight.bold,
+              color: color.withValues(alpha: 0.8),
+              fontWeight: FontWeight.w500,
             ),
           ),
-        ),
-      ],
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(8.0),
+              boxShadow: [
+                BoxShadow(
+                  color: color.withValues(alpha: 0.3),
+                  blurRadius: 2,
+                  offset: const Offset(0, 1),
+                ),
+              ],
+            ),
+            child: Text(
+              score,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 10,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 0.3,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _buildProcessingRow() {
     final level = health.processingLevel;
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(Icons.settings, size: 14, color: level.getColor()),
-        const SizedBox(width: 4.0),
-        Text(
-          'Processing: ',
-          style: TextStyle(
-            fontSize: 12,
-            color: Colors.grey[600],
-          ),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3.0),
+      decoration: BoxDecoration(
+        color: level.getColor().withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(12.0),
+        border: Border.all(
+          color: level.getColor().withValues(alpha: 0.3),
+          width: 1,
         ),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 1.0),
-          decoration: BoxDecoration(
-            color: level.getColor(),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          child: Text(
-            health.novaGroup.toString(),
-            style: const TextStyle(
-              color: Colors.white,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.settings, size: 14, color: level.getColor()),
+          const SizedBox(width: 4.0),
+          Text(
+            'Processing: ',
+            style: TextStyle(
               fontSize: 11,
-              fontWeight: FontWeight.bold,
+              color: level.getColor().withValues(alpha: 0.8),
+              fontWeight: FontWeight.w500,
             ),
           ),
-        ),
-      ],
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
+            decoration: BoxDecoration(
+              color: level.getColor(),
+              borderRadius: BorderRadius.circular(8.0),
+              boxShadow: [
+                BoxShadow(
+                  color: level.getColor().withValues(alpha: 0.3),
+                  blurRadius: 2,
+                  offset: const Offset(0, 1),
+                ),
+              ],
+            ),
+            child: Text(
+              health.novaGroup.toString(),
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 10,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 0.3,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
