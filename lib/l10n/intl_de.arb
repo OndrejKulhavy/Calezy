@@ -1,6 +1,14 @@
 {
+  "@@locale": "de",
   "appTitle": "Calezy",
   "appVersionName": "Version {versionNumber}",
+  "@appVersionName": {
+    "placeholders": {
+      "versionNumber": {
+        "type": "String"
+      }
+    }
+  },
   "appDescription": "Calezy ist ein einfacher und intelligenter Kalorienzähler, der Ihnen hilft, Ihre Gesundheitsziele mit Leichtigkeit zu erreichen.",
   "alphaVersionName": "[Alpha]",
   "betaVersionName": "[Beta]",
@@ -72,6 +80,19 @@
   "calculationsRecommendedLabel": "(empfohlen)",
   "calculationsMacronutrientsDistributionLabel": "Verteilung der Makronährstoffe",
   "calculationsMacrosDistribution": "{pctCarbs}% Kohlenhydrate, {pctFats}% Fette, {pctProteins}% Proteine",
+  "@calculationsMacrosDistribution": {
+    "placeholders": {
+      "pctCarbs": {
+        "type": "String"
+      },
+      "pctFats": {
+        "type": "String"
+      },
+      "pctProteins": {
+        "type": "String"
+      }
+    }
+  },
   "dailyKcalAdjustmentLabel": "Tägliche kcal-Anpassung:",
   "macroDistributionLabel": "Makronährstoff-Verteilung:",
   "exportImportLabel": "Daten Exportieren / Importieren",
@@ -179,6 +200,13 @@
   "kgLabel": "kg",
   "ageLabel": "Alter",
   "yearsLabel": "{age} Jahre",
+  "@yearsLabel": {
+    "placeholders": {
+      "age": {
+        "type": "String"
+      }
+    }
+  },
   "selectGenderDialogLabel": "Geschlecht auswählen",
   "genderLabel": "Geschlecht",
   "genderMaleLabel": "♂ männlich",
@@ -191,6 +219,13 @@
   "nutritionalStatusObeseClassII": "Fettleibigkeit Klasse II",
   "nutritionalStatusObeseClassIII": "Fettleibigkeit Klasse III",
   "nutritionalStatusRiskLabel": "Risiko für Begleiterkrankungen: {riskValue}",
+  "@nutritionalStatusRiskLabel": {
+    "placeholders": {
+      "riskValue": {
+        "type": "String"
+      }
+    }
+  },
   "nutritionalStatusRiskLow": "Niedrig \n(aber erhöhtes Risiko für andere \nklinische Probleme)",
   "nutritionalStatusRiskAverage": "Durchschnittlich",
   "nutritionalStatusRiskIncreased": "Erhöht",
@@ -204,7 +239,6 @@
   "errorLoadingActivities": "Fehler beim Laden von Aktivitäten",
   "noResultsFound": "Keine Ergebnisse gefunden",
   "retryLabel": "Erneut versuchen",
-  "@PHYSICAL_ACTIVITIES": {},
   "paHeadingBicycling": "Radfahren",
   "paHeadingConditionalExercise": "Konditionstraining",
   "paHeadingDancing": "Tanzen",
@@ -402,5 +436,14 @@
   "paSkiingGeneral": "Skifahren",
   "paSkiingGeneralDesc": "allgemein",
   "paSnowShovingModerate": "Schnee schaufeln",
-  "paSnowShovingModerateDesc": "manuell, mäßige Anstrengung"
+  "paSnowShovingModerateDesc": "manuell, mäßige Anstrengung",
+  "onboardingWeightExampleHintLbs": "z. B. 132",
+  "onboardingHeightExampleHintFt": "z. B. 5.8",
+  "settingsSystemLabel": "System",
+  "settingsMetricLabel": "Metrisch (kg, cm, ml)",
+  "settingsImperialLabel": "Imperial (lbs, ft, oz)",
+  "baseQuantityLabel": "Basismenge (g/ml)",
+  "ftLabel": "ft",
+  "lbsLabel": "lbs",
+  "paSkydiving": "Fallschirmspringen"
 }

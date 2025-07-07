@@ -1,6 +1,14 @@
 {
+  "@@locale": "tr",
   "appTitle": "Calezy",
   "appVersionName": "Versiyon {versionNumber}",
+  "@appVersionName": {
+    "placeholders": {
+      "versionNumber": {
+        "type": "String"
+      }
+    }
+  },
   "appDescription": "Calezy, sağlık hedeflerinize kolaylıkla ulaşmanıza yardımcı olan basit ve akıllı bir kalori takipçisidir.",
   "alphaVersionName": "[Alpha]",
   "betaVersionName": "[Beta]",
@@ -77,6 +85,19 @@
   "calculationsRecommendedLabel": "(önerilen)",
   "calculationsMacronutrientsDistributionLabel": "Makro besin dağılımı",
   "calculationsMacrosDistribution": "%{pctCarbs} karbonhidrat, %{pctFats} yağ, %{pctProteins} protein",
+  "@calculationsMacrosDistribution": {
+    "placeholders": {
+      "pctCarbs": {
+        "type": "String"
+      },
+      "pctFats": {
+        "type": "String"
+      },
+      "pctProteins": {
+        "type": "String"
+      }
+    }
+  },
   "dailyKcalAdjustmentLabel": "Günlük Kcal ayarı:",
   "macroDistributionLabel": "Makro besin Dağılımı:",
   "exportImportLabel": "Verileri Dışa Aktar / İçe Aktar",
@@ -108,6 +129,7 @@
   "copyOrDeleteTimeDialogContent": "\"Bugüne Kopyala\" ile yemeği bugüne kopyalayabilirsiniz. \"Sil\" ile yemeği silebilirsiniz.",
   "dialogCopyLabel": "BUGÜNE KOPYALA",
   "dialogDeleteLabel": "SİL",
+  "deleteAllLabel": "Hepsini sil",
   "suppliedLabel": "tüketilen",
   "burnedLabel": "yakılan",
   "kcalLeftLabel": "kalan kcal",
@@ -185,6 +207,13 @@
   "lbsLabel": "lbs",
   "ageLabel": "Yaş",
   "yearsLabel": "{age} yıl",
+  "@yearsLabel": {
+    "placeholders": {
+      "age": {
+        "type": "String"
+      }
+    }
+  },
   "selectGenderDialogLabel": "Cinsiyet Seçin",
   "genderLabel": "Cinsiyet",
   "genderMaleLabel": "♂ erkek",
@@ -197,6 +226,13 @@
   "nutritionalStatusObeseClassII": "Obezite Sınıf II",
   "nutritionalStatusObeseClassIII": "Obezite Sınıf III",
   "nutritionalStatusRiskLabel": "Eşlik eden hastalık riski: {riskValue}",
+  "@nutritionalStatusRiskLabel": {
+    "placeholders": {
+      "riskValue": {
+        "type": "String"
+      }
+    }
+  },
   "nutritionalStatusRiskLow": "Düşük \n(ancak diğer \nklinik sorunların riski artmış)",
   "nutritionalStatusRiskAverage": "Ortalama",
   "nutritionalStatusRiskIncreased": "Artmış",
@@ -210,7 +246,6 @@
   "errorLoadingActivities": "Aktiviteler yüklenirken hata oluştu",
   "noResultsFound": "Sonuç bulunamadı",
   "retryLabel": "Tekrar Dene",
-  "@PHYSICAL_ACTIVITIES": {},
   "paHeadingBicycling": "bisiklet sürme",
   "paHeadingConditionalExercise": "koşullandırma egzersizi",
   "paHeadingDancing": "dans",

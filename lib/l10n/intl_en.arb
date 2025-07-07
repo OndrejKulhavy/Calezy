@@ -1,6 +1,14 @@
 {
+  "@@locale": "en",
   "appTitle": "Calezy",
   "appVersionName": "Version {versionNumber}",
+  "@appVersionName": {
+    "placeholders": {
+      "versionNumber": {
+        "type": "String"
+      }
+    }
+  },
   "appDescription": "Calezy is a simple and smart calorie tracker that helps you reach your health goals with ease.",
   "alphaVersionName": "[Alpha]",
   "betaVersionName": "[Beta]",
@@ -77,6 +85,19 @@
   "calculationsRecommendedLabel": "(recommended)",
   "calculationsMacronutrientsDistributionLabel": "Macros distribution",
   "calculationsMacrosDistribution": "{pctCarbs}% carbs, {pctFats}% fats, {pctProteins}% proteins",
+  "@calculationsMacrosDistribution": {
+    "placeholders": {
+      "pctCarbs": {
+        "type": "String"
+      },
+      "pctFats": {
+        "type": "String"
+      },
+      "pctProteins": {
+        "type": "String"
+      }
+    }
+  },
   "dailyKcalAdjustmentLabel": "Daily Kcal adjustment:",
   "macroDistributionLabel": "Macronutrient Distribution:",
   "exportImportLabel": "Export / Import data",
@@ -188,6 +209,13 @@
   "lbsLabel": "lbs",
   "ageLabel": "Age",
   "yearsLabel": "{age} years",
+  "@yearsLabel": {
+    "placeholders": {
+      "age": {
+        "type": "String"
+      }
+    }
+  },
   "selectGenderDialogLabel": "Select Gender",
   "genderLabel": "Gender",
   "genderMaleLabel": "♂ male",
@@ -200,6 +228,13 @@
   "nutritionalStatusObeseClassII": "Obesity Class II",
   "nutritionalStatusObeseClassIII": "Obesity Class III",
   "nutritionalStatusRiskLabel": "Risk of comorbidities: {riskValue}",
+  "@nutritionalStatusRiskLabel": {
+    "placeholders": {
+      "riskValue": {
+        "type": "String"
+      }
+    }
+  },
   "nutritionalStatusRiskLow": "Low \n(but risk of other \nclinical problems increased)",
   "nutritionalStatusRiskAverage": "Average",
   "nutritionalStatusRiskIncreased": "Increased",
@@ -213,7 +248,6 @@
   "errorLoadingActivities": "Error while loading activities",
   "noResultsFound": "No results found",
   "retryLabel": "Retry",
-  "@PHYSICAL_ACTIVITIES": {},
   "paHeadingBicycling": "bicycling",
   "paHeadingConditionalExercise": "conditioning exercise",
   "paHeadingDancing": "dancing",
