@@ -103,9 +103,6 @@ enum MealSourceDBO {
       case MealSourceEntity.off:
         mealSourceDBO = MealSourceDBO.off;
         break;
-      case MealSourceEntity.fdc:
-        mealSourceDBO = MealSourceDBO.fdc;
-        break;
     }
     return mealSourceDBO;
   }

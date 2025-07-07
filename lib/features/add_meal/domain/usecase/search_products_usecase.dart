@@ -12,10 +12,4 @@ class SearchProductsUseCase {
         await _productsRepository.getOFFProductsByString(searchString);
     return products;
   }
-
-  Future<List<MealEntity>> searchFDCFoodByString(String searchString) async {
-    final foods =
-        await _productsRepository.getSupabaseFDCFoodsByString(searchString);
-    return foods;
-  }
 }

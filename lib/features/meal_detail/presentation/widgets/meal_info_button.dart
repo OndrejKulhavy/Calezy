@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:calezy/core/utils/off_const.dart';
-import 'package:calezy/features/add_meal/data/dto/fdc/fdc_const.dart';
 import 'package:calezy/features/add_meal/domain/entity/meal_entity.dart';
 import 'package:calezy/generated/l10n.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -38,9 +37,6 @@ class MealInfoButton extends StatelessWidget {
       case MealSourceEntity.off:
         siteUrl = url ?? OFFConst.offWebsiteUrl;
         break;
-      case MealSourceEntity.fdc:
-        siteUrl = url ?? FDCConst.fdcWebsiteUrl;
-        break;
     }
     return siteUrl;
   }
@@ -57,8 +53,6 @@ class MealInfoButton extends StatelessWidget {
       case MealSourceEntity.off:
         infoLabel = S.of(context).additionalInfoLabelOFF;
         break;
-      case MealSourceEntity.fdc:
-        infoLabel = S.of(context).additionalInfoLabelFDC;
     }
     return infoLabel;
   }

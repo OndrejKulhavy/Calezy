@@ -35,13 +35,10 @@ import 'package:calezy/core/utils/secure_app_storage_provider.dart';
 import 'package:calezy/features/activity_detail/presentation/bloc/activity_detail_bloc.dart';
 import 'package:calezy/features/add_activity/presentation/bloc/activities_bloc.dart';
 import 'package:calezy/features/add_activity/presentation/bloc/recent_activities_bloc.dart';
-import 'package:calezy/features/add_meal/data/data_sources/fdc_data_source.dart';
 import 'package:calezy/features/add_meal/data/data_sources/off_data_source.dart';
-import 'package:calezy/features/add_meal/data/data_sources/sp_fdc_data_source.dart';
 import 'package:calezy/features/add_meal/data/repository/products_repository.dart';
 import 'package:calezy/features/add_meal/domain/usecase/search_products_usecase.dart';
 import 'package:calezy/features/add_meal/presentation/bloc/add_meal_bloc.dart';
-import 'package:calezy/features/add_meal/presentation/bloc/food_bloc.dart';
 import 'package:calezy/features/add_meal/presentation/bloc/products_bloc.dart';
 import 'package:calezy/features/add_meal/presentation/bloc/recent_meal_bloc.dart';
 import 'package:calezy/features/diary/presentation/bloc/calendar_day_bloc.dart';
@@ -112,7 +109,6 @@ Future<void> initLocator() async {
   locator.registerFactory<AddMealBloc>(() => AddMealBloc(locator()));
   locator
       .registerFactory<ProductsBloc>(() => ProductsBloc(locator(), locator()));
-  locator.registerFactory<FoodBloc>(() => FoodBloc(locator(), locator()));
   locator.registerFactory(() => RecentMealBloc(locator(), locator()));
 
   // UseCases
@@ -163,7 +159,7 @@ Future<void> initLocator() async {
   locator.registerLazySingleton<IntakeRepository>(
       () => IntakeRepository(locator()));
   locator.registerLazySingleton<ProductsRepository>(
-      () => ProductsRepository(locator(), locator(), locator()));
+      () => ProductsRepository(locator()));
   locator.registerLazySingleton<UserActivityRepository>(
       () => UserActivityRepository(locator()));
   locator.registerLazySingleton<PhysicalActivityRepository>(
@@ -183,8 +179,6 @@ Future<void> initLocator() async {
   locator.registerLazySingleton<PhysicalActivityDataSource>(
       () => PhysicalActivityDataSource());
   locator.registerLazySingleton<OFFDataSource>(() => OFFDataSource());
-  locator.registerLazySingleton<FDCDataSource>(() => FDCDataSource());
-  locator.registerLazySingleton<SpFdcDataSource>(() => SpFdcDataSource());
   locator.registerLazySingleton(
       () => TrackedDayDataSource(hiveDBProvider.trackedDayBox));
 

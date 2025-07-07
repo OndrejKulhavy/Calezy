@@ -1,9 +1,6 @@
-import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
 import 'package:calezy/core/data/dbo/meal_nutriments_dbo.dart';
 import 'package:calezy/core/utils/extensions.dart';
-import 'package:calezy/features/add_meal/data/dto/fdc/fdc_const.dart';
-import 'package:calezy/features/add_meal/data/dto/fdc/fdc_food_nutriment_dto.dart';
 import 'package:calezy/features/add_meal/data/dto/off/off_product_nutriments_dto.dart';
 
 class MealNutrimentsEntity extends Equatable {
@@ -70,63 +67,6 @@ class MealNutrimentsEntity extends Equatable {
         saturatedFat100:
             (offNutriments.saturated_fat_100g as Object?).asDoubleOrNull(),
         fiber100: (offNutriments.fiber_100g as Object?).asDoubleOrNull());
-  }
-
-  factory MealNutrimentsEntity.fromFDCNutriments(
-      List<FDCFoodNutrimentDTO> fdcNutriment) {
-    // FDC Food nutriments can have different values for Energy [Energy,
-    // Energy (Atwater General Factors), Energy (Atwater Specific Factors)]
-    final energyTotal = fdcNutriment
-            .firstWhereOrNull(
-                (nutriment) => nutriment.nutrientId == FDCConst.fdcTotalKcalId)
-            ?.amount ??
-        fdcNutriment
-            .firstWhereOrNull((nutriment) =>
-                nutriment.nutrientId == FDCConst.fdcKcalAtwaterGeneralId)
-            ?.amount ??
-        fdcNutriment
-            .firstWhereOrNull((nutriment) =>
-                nutriment.nutrientId == FDCConst.fdcKcalAtwaterSpecificId)
-            ?.amount;
-
-    final carbsTotal = fdcNutriment
-        .firstWhereOrNull(
-            (nutriment) => nutriment.nutrientId == FDCConst.fdcTotalCarbsId)
-        ?.amount;
-
-    final fatTotal = fdcNutriment
-        .firstWhereOrNull(
-            (nutriment) => nutriment.nutrientId == FDCConst.fdcTotalFatId)
-        ?.amount;
-
-    final proteinsTotal = fdcNutriment
-        .firstWhereOrNull(
-            (nutriment) => nutriment.nutrientId == FDCConst.fdcTotalProteinsId)
-        ?.amount;
-
-    final sugarTotal = fdcNutriment
-        .firstWhereOrNull(
-            (nutriment) => nutriment.nutrientId == FDCConst.fdcTotalSugarId)
-        ?.amount;
-
-    final saturatedFatTotal = fdcNutriment
-        .firstWhereOrNull((nutriment) =>
-            nutriment.nutrientId == FDCConst.fdcTotalSaturatedFatId)
-        ?.amount;
-
-    final fiberTotal = fdcNutriment
-        .firstWhereOrNull((nutriment) =>
-            nutriment.nutrientId == FDCConst.fdcTotalDietaryFiberId)
-        ?.amount;
-
-    return MealNutrimentsEntity(
-        energyKcal100: energyTotal,
-        carbohydrates100: carbsTotal,
-        fat100: fatTotal,
-        proteins100: proteinsTotal,
-        sugars100: sugarTotal,
-        saturatedFat100: saturatedFatTotal,
-        fiber100: fiberTotal);
   }
 
   static double? _getValuePerUnit(double? valuePer100) {

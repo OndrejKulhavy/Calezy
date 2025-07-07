@@ -5,7 +5,6 @@ import 'package:calezy/core/utils/navigation_options.dart';
 import 'package:calezy/features/add_meal/domain/entity/meal_entity.dart';
 import 'package:calezy/features/add_meal/presentation/add_meal_type.dart';
 import 'package:calezy/features/add_meal/presentation/bloc/add_meal_bloc.dart';
-import 'package:calezy/features/add_meal/presentation/bloc/food_bloc.dart';
 import 'package:calezy/features/add_meal/presentation/bloc/recent_meal_bloc.dart';
 import 'package:calezy/features/add_meal/presentation/widgets/default_results_widget.dart';
 import 'package:calezy/features/add_meal/presentation/widgets/meal_search_bar.dart';
@@ -32,7 +31,6 @@ class _AddMealScreenState extends State<AddMealScreen>
   late DateTime _day;
 
   late ProductsBloc _productsBloc;
-  late FoodBloc _foodBloc;
   late RecentMealBloc _recentMealBloc;
 
   late TabController _tabController;
@@ -40,9 +38,8 @@ class _AddMealScreenState extends State<AddMealScreen>
   @override
   void initState() {
     _productsBloc = locator<ProductsBloc>();
-    _foodBloc = locator<FoodBloc>();
     _recentMealBloc = locator<RecentMealBloc>();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 2, vsync: this);
     _tabController.addListener(() {
       // Update search results when tab changes
       _onSearchSubmit(_searchStringListener.value);
@@ -99,7 +96,6 @@ class _AddMealScreenState extends State<AddMealScreen>
               TabBar(
                   tabs: [
                     Tab(text: S.of(context).searchProductsPage),
-                    Tab(text: S.of(context).searchFoodPage),
                     Tab(text: S.of(context).recentlyAddedLabel)
                   ],
                   controller: _tabController,
@@ -144,51 +140,6 @@ class _AddMealScreenState extends State<AddMealScreen>
                             return ErrorDialog(
                               errorText: S.of(context).errorFetchingProductData,
                               onRefreshPressed: _onProductsRefreshButtonPressed,
-                            );
-                          } else {
-                            return const SizedBox();
-                          }
-                        },
-                      )
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          alignment: Alignment.centerLeft,
-                          child: Text(S.of(context).searchResultsLabel,
-                              style:
-                                  Theme.of(context).textTheme.headlineSmall)),
-                      BlocBuilder<FoodBloc, FoodState>(
-                        bloc: _foodBloc,
-                        builder: (context, state) {
-                          if (state is FoodInitial) {
-                            return const DefaultsResultsWidget();
-                          } else if (state is FoodLoadingState) {
-                            return const Padding(
-                              padding: EdgeInsets.only(top: 32),
-                              child: CircularProgressIndicator(),
-                            );
-                          } else if (state is FoodLoadedState) {
-                            return state.food.isNotEmpty
-                                ? Flexible(
-                                    child: ListView.builder(
-                                        itemCount: state.food.length,
-                                        itemBuilder: (context, index) {
-                                          return MealItemCard(
-                                            day: _day,
-                                            mealEntity: state.food[index],
-                                            addMealType: _mealType,
-                                            usesImperialUnits:
-                                                state.usesImperialUnits,
-                                          );
-                                        }))
-                                : const NoResultsWidget();
-                          } else if (state is FoodFailedState) {
-                            return ErrorDialog(
-                              errorText: S.of(context).errorFetchingProductData,
-                              onRefreshPressed: _onFoodRefreshButtonPressed,
                             );
                           } else {
                             return const SizedBox();
@@ -250,10 +201,6 @@ class _AddMealScreenState extends State<AddMealScreen>
     _productsBloc.add(const RefreshProductsEvent());
   }
 
-  void _onFoodRefreshButtonPressed() {
-    _foodBloc.add(const RefreshFoodEvent());
-  }
-
   void _onRecentMealsRefreshButtonPressed() {
     _recentMealBloc.add(const LoadRecentMealEvent(searchString: ""));
   }
@@ -263,8 +210,6 @@ class _AddMealScreenState extends State<AddMealScreen>
       case 0:
         _productsBloc.add(LoadProductsEvent(searchString: inputText));
       case 1:
-        _foodBloc.add(LoadFoodEvent(searchString: inputText));
-      case 2:
         _recentMealBloc.add(LoadRecentMealEvent(searchString: inputText));
     }
   }

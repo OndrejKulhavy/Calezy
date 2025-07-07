@@ -4,9 +4,6 @@ import 'package:equatable/equatable.dart';
 import 'package:calezy/core/data/dbo/meal_dbo.dart';
 import 'package:calezy/core/utils/id_generator.dart';
 import 'package:calezy/core/utils/supported_language.dart';
-import 'package:calezy/features/add_meal/data/dto/fdc/fdc_const.dart';
-import 'package:calezy/features/add_meal/data/dto/fdc/fdc_food_dto.dart';
-import 'package:calezy/features/add_meal/data/dto/fdc_sp/sp_fdc_food_dto.dart';
 import 'package:calezy/features/add_meal/data/dto/off/off_product_dto.dart';
 import 'package:calezy/features/add_meal/domain/entity/meal_nutriments_entity.dart';
 
@@ -108,43 +105,6 @@ class MealEntity extends Equatable {
         source: MealSourceEntity.off);
   }
 
-  factory MealEntity.fromFDCFood(FDCFoodDTO fdcFood) {
-    final fdcId = fdcFood.fdcId?.toInt().toString();
-
-    return MealEntity(
-        code: fdcId,
-        name: fdcFood.description,
-        brands: fdcFood.brandName,
-        url: FDCConst.getFoodDetailUrlString(fdcId),
-        mealQuantity: fdcFood.packageWeight,
-        mealUnit: fdcFood.servingSizeUnit,
-        servingQuantity: fdcFood.servingSize,
-        servingUnit: fdcFood.servingSizeUnit,
-        servingSize: fdcFood.servingSizeUnit,
-        nutriments:
-            MealNutrimentsEntity.fromFDCNutriments(fdcFood.foodNutrients),
-        source: MealSourceEntity.fdc);
-  }
-
-  factory MealEntity.fromSpFDCFood(SpFdcFoodDTO foodItem) {
-    final fdcId = foodItem.fdcId?.toInt().toString();
-
-    return MealEntity(
-        code: fdcId,
-        name: foodItem.getLocaleDescription(
-            SupportedLanguage.fromCode(Platform.localeName)),
-        brands: null,
-        url: FDCConst.getFoodDetailUrlString(fdcId),
-        mealQuantity: null,
-        mealUnit: FDCConst.fdcDefaultUnit,
-        servingQuantity: foodItem.servingSize,
-        servingUnit: FDCConst.fdcDefaultUnit,
-        servingSize:
-            "${(foodItem.servingAmount ?? 1).toInt()} ${foodItem.servingSizeUnit}",
-        nutriments: MealNutrimentsEntity.fromFDCNutriments(foodItem.nutrients),
-        source: MealSourceEntity.fdc);
-  }
-
   /// Value returned from OFF can either be String, int or double.
   /// Try casting it to a double value for calculation
   static double? _tryQuantityCast(dynamic value) {
@@ -186,8 +146,7 @@ class MealEntity extends Equatable {
 enum MealSourceEntity {
   unknown,
   custom,
-  off,
-  fdc;
+  off;
 
   factory MealSourceEntity.fromMealSourceDBO(MealSourceDBO mealSourceDBO) {
     MealSourceEntity mealSourceEntity;
@@ -202,7 +161,7 @@ enum MealSourceEntity {
         mealSourceEntity = MealSourceEntity.off;
         break;
       case MealSourceDBO.fdc:
-        mealSourceEntity = MealSourceEntity.fdc;
+        mealSourceEntity = MealSourceEntity.unknown; // Map FDC to unknown since we're removing it
         break;
     }
     return mealSourceEntity;
